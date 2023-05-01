@@ -265,8 +265,8 @@ def run_interpolation(
 
     # TODO(hayk): Change the frequency range to [20, 20k] once the model is retrained
     params = SpectrogramParams(
-        min_frequency=0,
-        max_frequency=10000,
+        min_frequency=20,
+        max_frequency=20000,
     )
 
     # Reconstruct from image to audio

@@ -15,7 +15,7 @@ EXAMPLE_INPUT = """
     "scheduler": "DPMSolverMultistepScheduler",
     "num_inference_steps": 50,
     "guidance": 7.0,
-    "width": 512,
+    "width": 768,
   },
   "entries": [
     {
@@ -135,10 +135,10 @@ def render() -> None:
                     seed=seed,
                     num_inference_steps=params.get("num_inference_steps", 50),
                     guidance=params.get("guidance", 7.0),
-                    width=params.get("width", 512),
+                    width=params.get("width", 768),
                     checkpoint=params.get("checkpoint", streamlit_util.DEFAULT_CHECKPOINT),
                     scheduler=params.get("scheduler", streamlit_util.SCHEDULER_OPTIONS[0]),
-                    height=512,
+                    height=768,
                     device=device,
                 )
 
@@ -147,8 +147,8 @@ def render() -> None:
 
                 # TODO(hayk): Change the frequency range to [20, 20k] once the model is retrained
                 p_spectrogram = SpectrogramParams(
-                    min_frequency=0,
-                    max_frequency=10000,
+                    min_frequency=20,
+                    max_frequency=20000,
                 )
 
                 output_format = "mp3"

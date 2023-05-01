@@ -56,7 +56,7 @@ def render() -> None:
 
     with st.sidebar:
         num_inference_steps = T.cast(int, st.number_input("Inference steps", value=30))
-        width = T.cast(int, st.number_input("Width", value=512))
+        width = T.cast(int, st.number_input("Width", value=768))
         guidance = st.number_input(
             "Guidance", value=7.0, help="How much the model listens to the text prompt"
         )
@@ -83,8 +83,8 @@ def render() -> None:
         )
     else:
         params = SpectrogramParams(
-            min_frequency=0,
-            max_frequency=10000,
+            min_frequency=20,
+            max_frequency=20000,
             stereo=False,
         )
 
@@ -99,7 +99,7 @@ def render() -> None:
             negative_prompt=negative_prompt,
             seed=seed,
             width=width,
-            height=512,
+            height=768,
             checkpoint=checkpoint,
             device=device,
             scheduler=scheduler,

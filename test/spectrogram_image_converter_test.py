@@ -50,14 +50,14 @@ class SpectrogramImageConverterTest(TestCase):
             step_size_ms=10,
             min_frequency=20,
             max_frequency=20000,
-            num_frequencies=512,
+            num_frequencies=768,
         )
 
         if self.DEBUG:
             param_sets["freq_0_to_10k"] = dataclasses.replace(
                 param_sets["default"],
-                min_frequency=0,
-                max_frequency=10000,
+                min_frequency=20,
+                max_frequency=20000,
             )
 
         segments: T.Dict[str, pydub.AudioSegment] = {

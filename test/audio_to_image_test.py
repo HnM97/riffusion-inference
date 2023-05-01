@@ -18,10 +18,10 @@ class AudioToImageTest(TestCase):
     def default_params(cls) -> T.Dict:
         return dict(
             step_size_ms=10,
-            num_frequencies=512,
+            num_frequencies=768,
             # TODO(hayk): Change these to [20, 20000] once a model is updated
-            min_frequency=0,
-            max_frequency=10000,
+            min_frequency=20,
+            max_frequency=20000,
             stereo=False,
             device=cls.DEVICE,
         )

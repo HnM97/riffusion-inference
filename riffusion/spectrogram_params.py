@@ -27,10 +27,10 @@ class SpectrogramParams:
     padded_duration_ms: int = 400
 
     # Mel scale parameters
-    num_frequencies: int = 512
+    num_frequencies: int = 768
     # TODO(hayk): Set these to [20, 20000] for newer models
-    min_frequency: int = 0
-    max_frequency: int = 10000
+    min_frequency: int = 20
+    max_frequency: int = 20000
     mel_scale_norm: T.Optional[str] = None
     mel_scale_type: str = "htk"
     max_mel_iters: int = 200

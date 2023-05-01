@@ -194,8 +194,8 @@ def render() -> None:
         )
     else:
         params = SpectrogramParams(
-            min_frequency=0,
-            max_frequency=10000,
+            min_frequency=20,
+            max_frequency=20000,
             stereo=False,
         )
 
