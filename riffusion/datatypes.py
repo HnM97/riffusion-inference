@@ -71,3 +71,24 @@ class InferenceOutput:
 
     # The duration of the audio clip
     duration_s: float
+
+@dataclass(frozen=True)
+class RiffusionInput:
+    """
+    Input from API server.
+    """
+
+    # wav file url stored S3 bucket made from midi
+    wav_url: str
+
+    # prompt made by gpt and user input
+    prompt: str
+
+@dataclass(frozen=True)
+class RiffusionOutput:
+    """
+    Response from the model, using audio_to_image, image_to_audio batch.
+    """
+
+    # filename of the audio clip as an MP3, send to API server with send_file() from flask
+    audio: str
