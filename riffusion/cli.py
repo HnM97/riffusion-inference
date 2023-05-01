@@ -125,7 +125,7 @@ def sample_clips(
         clip_start_ms = np.random.randint(0, segment_duration_ms - duration_ms)
         clip = segment[clip_start_ms : clip_start_ms + duration_ms]
 
-        clip_name = f"clip_{i}_start_{clip_start_ms}_ms_duration_{duration_ms}_ms.{extension}"
+        clip_name = f".{extension}"
         clip_path = output_dir_path / clip_name
         clip.export(clip_path, format=extension)
         print(f"Wrote {clip_path}")
@@ -178,6 +178,11 @@ def audio_to_images_batch(
         except Exception:
             return
 
+        if segment.channels != 1 and segment.channels != 2:
+            print("supported number of channels:", segment.channels)
+            print("audio_path: ", audio_path)
+            return
+        
         # TODO(hayk): Sanity checks on clip
 
         if mono and segment.channels != 1:
@@ -253,10 +258,7 @@ def sample_clips_batch(
 
             clip = segment[clip_start_ms : clip_start_ms + duration_ms]
 
-            clip_name = (
-                f"{audio_path.stem}_{i}_"
-                f"start_{clip_start_ms}_ms_dur_{duration_ms}_ms.{extension}"
-            )
+            clip_name = f"{audio_path.stem}.{extension}"
             clip.export(output_path / clip_name, format=extension)
 
     pool = ThreadPool(processes=num_threads)
