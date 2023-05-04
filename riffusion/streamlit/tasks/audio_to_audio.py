@@ -364,10 +364,10 @@ def get_clip_params(advanced: bool = False) -> T.Dict[str, T.Any]:
             "Overlap Duration [s]",
             min_value=0.0,
             max_value=10.0,
-            value=0.2,
+            value=0.5,
         )
     else:
-        p["overlap_duration_s"] = 0.2
+        p["overlap_duration_s"] = 0.5
 
     return p
 

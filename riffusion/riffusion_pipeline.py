@@ -22,6 +22,11 @@ from transformers import CLIPFeatureExtractor, CLIPTextModel, CLIPTokenizer
 from riffusion.datatypes import InferenceInput
 from riffusion.external.prompt_weighting import get_weighted_text_embeddings
 from riffusion.util import torch_util
+import os 
+
+os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+os.environ["CUDA_VISIBLE_DEVICE"] = "2"
+
 
 logger = logging.get_logger(__name__)  # pylint: disable=invalid-name
 

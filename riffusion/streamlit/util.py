@@ -17,8 +17,8 @@ from riffusion.spectrogram_image_converter import SpectrogramImageConverter
 from riffusion.spectrogram_params import SpectrogramParams
 
 # TODO(hayk): Add URL params
-
-DEFAULT_CHECKPOINT = "riffusion/riffusion-model-v1"
+DEFAULT_CHECKPOINT = "../training/riffusion-model"
+# DEFAULT_CHECKPOINT = "../training/riffusion-model-768"
 
 AUDIO_EXTENSIONS = ["mp3", "wav", "flac", "webm", "m4a", "ogg"]
 IMAGE_EXTENSIONS = ["png", "jpg", "jpeg"]

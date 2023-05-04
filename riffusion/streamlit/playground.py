@@ -4,10 +4,17 @@ import streamlit as st
 import streamlit.web.cli as stcli
 from streamlit import runtime
 
+import os
+
+os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+os.environ["CUDA_VISIBLE_DEVICE"] = "2"
+
+
 PAGES = {
     "🎛️ Home": "tasks.home",
     "🌊 Text to Audio": "tasks.text_to_audio",
     "✨ Audio to Audio": "tasks.audio_to_audio",
+    "✨ Audio to Audio Batch": "tasks.audio_to_audio_batch",
     "🎭 Interpolation": "tasks.interpolation",
     "✂️ Audio Splitter": "tasks.split_audio",
     "📜 Text to Audio Batch": "tasks.text_to_audio_batch",
